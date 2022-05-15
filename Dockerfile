@@ -1,8 +1,10 @@
 FROM openjdk:18-jdk-alpine
+COPY ./ ./
+RUN chmod u+x ./mvnw
+RUN ./mvnw package
+RUN ./mvnw assembly:single
+ARG JAR_FILE=target/*-dependencies.jar
+RUN cp ${JAR_FILE} app.jar
 RUN addgroup -S spring && adduser -S spring -G spring
 USER spring:spring
-ARG JAR_FILE_DEPENDENCIES=target/*-with-dependencies.jar
-COPY ${JAR_FILE_DEPENDENCIES} dependencies.jar
-ARG JAR_FILE=target/*-SNAPSHOT.jar
-COPY ${JAR_FILE} app.jar
 ENTRYPOINT ["java","-cp","app.jar", "com.willypuzzle.todospringapplication.ToDoSpringApplication"]
