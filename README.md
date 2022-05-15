@@ -5,6 +5,9 @@ This is the server side of that application written in Spring.
 ### Why?
 I built this project in order to learn spring Java framework
 
+### Docker support
+(iN PROGRESS) 
+
 ### LICENSE
 
 MIT

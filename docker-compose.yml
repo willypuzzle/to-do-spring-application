@@ -1,0 +1,20 @@
+version: '2'
+
+services:
+  app:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    ports:
+      - 8080:8080
+  database:
+    image: "postgres:latest"
+    ports:
+      - 5432:5432
+    env_file:
+      - .env # The name of your environment file (the one at the repository root)
+    volumes:
+      - db:/var/lib/postgresql/data/
+volumes:
+  db:
+    driver: local
