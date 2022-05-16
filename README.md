@@ -14,6 +14,6 @@ In order to use the docker-compose file, you should:
 
 You can edit .env.spring and .env.database as you like but always coherently.
 
-### LICENSE
+# License
 
-MIT
+This project is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
