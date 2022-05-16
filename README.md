@@ -1,5 +1,5 @@
 # About this project
-This project is built on top of another [project]('https://github.com/willypuzzle/to-do-app'), where I have built the frontend for to-do-application.
+This project is built on top of another [project](https://github.com/willypuzzle/to-do-app), where I have built the frontend for to-do-application.
 This is the server side of that application written in Spring.
 
 ### Why?
