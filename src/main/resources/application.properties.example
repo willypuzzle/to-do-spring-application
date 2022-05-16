@@ -1,3 +1,0 @@
-spring.datasource.url=jdbc:postgresql://database:5432/todo
-spring.datasource.username=todo_user
-spring.datasource.password=todo 

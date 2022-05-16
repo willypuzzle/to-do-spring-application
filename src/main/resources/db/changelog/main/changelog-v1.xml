@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+    <changeSet author="willypuzzle" id="2022-05-16 16:00:00">
+        <createTable
+                schemaName="todo"
+                tableName="users"
+                tablespace="public">
+            <column name="id"  type="bigint" autoIncrement="true" />
+            <column name="what" type="text" />
+            <column name="when" type="date" />
+            <column name="where" type="text" />
+        </createTable>
+    </changeSet>
+</databaseChangeLog>
