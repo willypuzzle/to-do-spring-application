@@ -9,22 +9,24 @@ public class BaseErrorInfo {
 
     protected final String message;
 
-    protected final String prodMessageError =  "Internal Server Error";
-
     protected static final Logger LOGGER = LogManager.getLogger(JDBCErrorInfo.class);
 
     public BaseErrorInfo(Exception ex){
         if(Environment.isProduction()){
-            this.message = this.prodMessageError;
+            this.message = this.getProdMessageError();
         }else{
             this.message = ex.getMessage();
         }
 
 
-        LOGGER.error("A JDBC Error occurred", ex);
+        LOGGER.error(this.getProdMessageError(), ex);
     }
 
     public String getMessage() {
         return message;
+    }
+
+    protected String getProdMessageError(){
+        return "Internal Server Error";
     }
 }
