@@ -27,6 +27,6 @@ public class Environment {
                     return sum;
                 }
                 return Objects.requireNonNull(instance.env.getProperty("spring.application.environment")).equalsIgnoreCase(delta) ? "found" : "not-found";
-            }) == "found";
+            }).equals("found");
     }
 }
