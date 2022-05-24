@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
-public class TodoService {
+public class TodoService implements com.willypuzzle.todospringapplication.services.todo.contracts.TodoService {
 
     @Autowired
     private TodoRepository todoRepository;
@@ -20,6 +20,7 @@ public class TodoService {
     @Autowired
     private ModelMapper modelMapper;
 
+    @Override
     public List<TodoDto> getAllTodos(){
         return todoRepository.findAll()
                 .stream()
