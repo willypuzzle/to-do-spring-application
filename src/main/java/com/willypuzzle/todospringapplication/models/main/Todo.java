@@ -10,7 +10,11 @@ public class Todo {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String what;
+
+    @Column(name = "when_field")
     private Date when;
+
+    @Column(name = "where_field")
     private String where;
 
     public Long getId() {

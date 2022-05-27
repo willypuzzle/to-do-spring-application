@@ -4,16 +4,29 @@ import lombok.Data;
 
 import java.text.DateFormat;
 import java.text.ParseException;
+import java.time.Instant;
 import java.util.Date;
+
+import javax.validation.constraints.NotEmpty;
 
 @Data
 public class TodoDto {
     private Long id;
+
+    @NotEmpty
     private String what;
-    private Date when;
+
+    @NotEmpty
+    private String when;
+
+    @NotEmpty
     private String where;
 
-    public void setWhen(String when) throws ParseException {
-        this.when = DateFormat.getDateTimeInstance().parse(when);
+    public Date getWhen(){
+        try{
+            return DateFormat.getDateTimeInstance().parse(when);
+        }catch (ParseException ex){
+            return Date.from(Instant.now());
+        }
     }
 }

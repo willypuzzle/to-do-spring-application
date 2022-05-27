@@ -18,8 +18,12 @@ public class TodoService implements com.willypuzzle.todospringapplication.servic
     @Autowired
     private TodoRepository todoRepository;
 
-    @Autowired
-    private ModelMapper modelMapper;
+    private final ModelMapper modelMapper;
+
+    public TodoService(){
+        super();
+        modelMapper = new ModelMapper();
+    }
 
     @Override
     public List<TodoDto> getAllTodos(){

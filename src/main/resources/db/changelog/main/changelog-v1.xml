@@ -11,8 +11,8 @@
                 tablespace="public">
             <column name="id"  type="bigint" autoIncrement="true" />
             <column name="what" type="text" />
-            <column name="when" type="date" />
-            <column name="where" type="text" />
+            <column name="when_field" type="date" />
+            <column name="where_field" type="text" />
         </createTable>
     </changeSet>
 </databaseChangeLog>
