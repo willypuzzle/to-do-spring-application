@@ -1,7 +1,7 @@
 package com.willypuzzle.todospringapplication.models.main;
 
 import javax.persistence.*;
-import java.util.Date;
+import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "todos")
@@ -12,7 +12,7 @@ public class Todo {
     private String what;
 
     @Column(name = "when_field")
-    private Date when;
+    private LocalDateTime when;
 
     @Column(name = "where_field")
     private String where;
@@ -33,11 +33,11 @@ public class Todo {
         this.what = what;
     }
 
-    public Date getWhen() {
+    public LocalDateTime getWhen() {
         return when;
     }
 
-    public void setWhen(Date when) {
+    public void setWhen(LocalDateTime when) {
         this.when = when;
     }
 

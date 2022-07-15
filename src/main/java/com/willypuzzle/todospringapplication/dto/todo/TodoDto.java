@@ -1,15 +1,13 @@
 package com.willypuzzle.todospringapplication.dto.todo;
 
+import com.willypuzzle.todospringapplication.libraries.logging.ApplicationLogger;
 import lombok.Data;
 
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.time.Instant;
-import java.util.Date;
-import java.util.TimeZone;
-
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Pattern;
+import java.sql.Date;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Data
 public class TodoDto {
@@ -19,27 +17,23 @@ public class TodoDto {
     private String what;
 
     @NotEmpty
+    @Pattern(regexp = "^\\d{4}\\-\\d{2}\\-\\d{2}T\\d{2}\\:\\d{2}\\:\\d{2}$")
     private String when;
 
     @NotEmpty
     private String where;
-    private String timezone;
 
-    public Date getWhen(){
-        try{
-            SimpleDateFormat s = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-            s.setTimeZone(getTimezone());
-            return DateFormat.getDateTimeInstance().parse(when);
-        }catch (ParseException ex){
-            return Date.from(Instant.now());
-        }
+    public void setWhen(String date){
+        ApplicationLogger.logger().debug("setWhen: " + date);
+        when = date;
     }
 
-    private TimeZone getTimezone() {
-        if(timezone == null){
-            timezone = "UTC";
-        }
+    public LocalDateTime getWhen(){
+        ApplicationLogger.logger().debug("getWhen: " + when);
+        return LocalDateTime.parse(when);
+    }
 
-        return TimeZone.getTimeZone(timezone);
+    public void setWhen(Date date){
+        this.when = String.valueOf(date);
     }
 }
